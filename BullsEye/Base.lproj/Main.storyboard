@@ -113,6 +113,9 @@
                             <constraint firstItem="Ajh-ZD-A3E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="yky-A9-N33"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="slider" destination="vHs-ci-yK9" id="Egi-zM-0nv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
