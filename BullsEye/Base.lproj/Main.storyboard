@@ -115,6 +115,7 @@
                     </view>
                     <connections>
                         <outlet property="slider" destination="vHs-ci-yK9" id="Egi-zM-0nv"/>
+                        <outlet property="targetLabel" destination="hnu-Xt-ZsM" id="CJd-eZ-emL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

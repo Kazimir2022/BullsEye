@@ -8,20 +8,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-     var currentValue: Int = 0
+     var currentValue: Int = 50
     var targetValue = 0
     @IBOutlet var slider:UISlider!
+    @IBOutlet var targetLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentValue = lroundf(slider.value)  // нет в области видимости без аутлета
-        targetValue = Int.random(in: 1...100)
+        startNewRound()
     }
     
     
     @IBAction func showAlert() {
-      let message = " The value of the slider is: \(currentValue) \n" +
-        "The target value is: \(targetValue) "//срабатывает событие при нажитии на кнопку
+        var difference: Int
+          
+          if currentValue > targetValue {
+            difference = currentValue - targetValue
+          } else if targetValue > currentValue {
+            difference = targetValue - currentValue
+          } else {
+            difference = 0
+          }
 
+          let message = "The value of the slider is: \(currentValue)" +
+                        "\nThe target value is: \(targetValue)" +
+                        "\nThe difference is: \(difference)
+        
         let alert = UIAlertController(
             title: "Hello, World",
             message: message,
@@ -34,11 +47,23 @@ class ViewController: UIViewController {
 
           alert.addAction(action)
           present(alert, animated: true, completion: nil)
+        startNewRound()
                 
     }
     @IBAction func sliderMoved(_ slider: UISlider) {
         currentValue = lroundf(slider.value)
 
+    }
+    func startNewRound(){
+     targetValue = Int.random(in: 1...100)
+     currentValue = 50
+     slider.value = Float(currentValue)
+     updateLabels()
+    
+    }
+    
+    func updateLabels() {
+      targetLabel.text = String(targetValue)
     }
     
 }
