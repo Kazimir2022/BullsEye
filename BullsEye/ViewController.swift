@@ -17,9 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var roundLabel: UILabel!
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        startNewGame()
     }
     
     
@@ -52,9 +55,9 @@ class ViewController: UIViewController {
 
           let action = UIAlertAction(
             title: message,
-            style: .default,
-            handler: { _ in self.startNewRound()})
-
+            style: .default
+            )
+        { _ in self.startNewRound()}
           alert.addAction(action)
           present(alert, animated: true, completion: nil)
         
@@ -64,6 +67,13 @@ class ViewController: UIViewController {
         currentValue = lroundf(slider.value)
 
     }
+    @IBAction func startNewGame() {
+        score = 0
+        round = 0
+     startNewRound()
+    }
+    
+    
     func startNewRound(){
      targetValue = Int.random(in: 1...100)
      currentValue = 50
@@ -71,7 +81,6 @@ class ViewController: UIViewController {
      updateLabels()
         round += 1
     }
-    
     func updateLabels() {
       targetLabel.text = String(targetValue)
         scoreLabel.text = String(score)
