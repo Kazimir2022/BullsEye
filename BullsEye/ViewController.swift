@@ -25,20 +25,24 @@ class ViewController: UIViewController {
     
     @IBAction func showAlert() {
         let difference = abs(currentValue - targetValue)
-          let points = 100 - difference
-          score += points
-        let title :String //не инициализирована, поэтому можно      let
-        //var title = ""
+          var points = 100 - difference
+          
+        let title :String
           if difference == 0 {
             title = "Perfect!"
+            points += 100
           } else if difference < 5 {
             title = "You almost had it!"
+              if difference < 1{
+                  points += 50
+              }
           } else if difference < 10 {
             title = "Pretty good!"
           } else {
             title = "Not even close..."
           }
-        
+          score += points
+
           let message = "Your scored \(points) points"
                         
         let alert = UIAlertController(
@@ -49,11 +53,11 @@ class ViewController: UIViewController {
           let action = UIAlertAction(
             title: message,
             style: .default,
-            handler: nil)
+            handler: { _ in self.startNewRound()})
 
           alert.addAction(action)
           present(alert, animated: true, completion: nil)
-        startNewRound()
+        
                 
     }
     @IBAction func sliderMoved(_ slider: UISlider) {
