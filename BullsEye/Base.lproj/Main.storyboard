@@ -114,6 +114,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="roundLabel" destination="2or-yT-gvi" id="VeD-YM-ilu"/>
                         <outlet property="scoreLabel" destination="ujQ-G6-2J7" id="961-DQ-AYr"/>
                         <outlet property="slider" destination="vHs-ci-yK9" id="Egi-zM-0nv"/>
                         <outlet property="targetLabel" destination="hnu-Xt-ZsM" id="CJd-eZ-emL"/>
