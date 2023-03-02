@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         let difference = abs(currentValue - targetValue)
           let points = 100 - difference
           score += points
-          round += 1
+          
         
           let message = "Your scored \(points) points"
                         
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
      currentValue = 50
      slider.value = Float(currentValue)
      updateLabels()
-    
+        round += 1
     }
     
     func updateLabels() {
