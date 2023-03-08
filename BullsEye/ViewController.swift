@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
        
         
-       //custom slider
+       //      custom slider
         
         
         
